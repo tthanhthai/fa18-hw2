@@ -1,0 +1,17 @@
+  <% if @cities.nil? or @cities.empty? %>
+    <i><strong>Let's create a new city by going to /cities/new because the one you chose is not in our database </i></strong>
+  <% elsif params[:name] == nil ||  @cities[params[:name]] == nil %>
+  <% @cities.each do |city| %>
+    <%= form_with local: true, url: "update", method: "post" do |form| %>
+  	<h1>Name: </h1>
+  		<%= city.name %>
+    <h1>Landmark:</h1>
+  	<%= city.landmark %>
+    <h1>Population:</h1>
+  	<%= city.population %>
+    <h1>Weather:</h1>
+  	<%= city.weather[:temperature] %>
+  	<%= form.submit "update" %>
+  <% end%>
+  <% end %>
+  <% end %>

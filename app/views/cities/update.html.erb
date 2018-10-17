@@ -1,0 +1,13 @@
+<h1>Hello again!</h1>
+ <i>What city do you want to learn about next?</i>
+
+ <%= form_with local: true, url: "updatepost", method: "post" do |form| %>
+	<b>Name:</b><br>
+	<%= form.text_field :name %> <br>
+	<b>Landmark:</b> <br>
+	<%= form.text_field :landmark %><br>
+	<b>Population:</b><br>
+	<%= form.text_field :population %>
+	<br>
+	<%= form.submit "Update" %>
+<% end %>

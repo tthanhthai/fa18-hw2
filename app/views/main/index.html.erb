@@ -1,1 +1,20 @@
 <!-- Your code here -->
+<h1>Hello Friendo!</h1>
+<i>What city do you want to know more about?</i>
+<%= form_with local: true, method: "get" do |form| %>
+    <%= form.text_field :city %>
+    <%= form.submit %>
+<% end %>
+
+<% City.all.each do |c| %>
+  <% if not c.nil? %>
+    	<b> Name: <%= @city %> </b>
+    	<br>
+    		It's <%= @temperature %>°F
+    		and it looks like <%= @description %><br>
+      <b>Population:</b>
+        <%= @population %> <br>
+      <b>Famous Landmark</b>
+        <%= @landmark %>
+    <% end %>
+  <% end %>
